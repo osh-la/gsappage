@@ -9,40 +9,28 @@ export default function About() {
     const aboutImage1 = useRef();
     const aboutImage2 = useRef();
     const aboutHeader = useRef();
+    const about = useRef();
     
     useEffect(()=>{
        gsap.fromTo(
-  aboutImage1.current,
+  [aboutImage1.current, aboutHeader.current],
   { y: 200, opacity: 0.9 },
   {
     y: 0,
     opacity: 1,
     ease: 'power1.out', 
     scrollTrigger: {
-      trigger: aboutImage1.current,
-      start: 'top 90%',     
-      end: 'top 80%',       
+      trigger: about.current,
+      start: 'top 60%',     
+      end: 'top 20%',       
       scrub: true,         
-      toggleActions: 'play none none none' 
+      toggleActions: 'play none none none', 
     }
   })
-        gsap.fromTo(
-            aboutHeader.current,
-            {y:100, opacity:0},
-            {y:0, opacity:1,ease:'power1.in',
-                scrollTrigger:{
-                    trigger:aboutHeader.current,
-                    start:'top 70%',
-                    end:'bottom 95%',
-                    scrub:true,
-                  
-                }
-            }
-        )
-
+       
     },[]);
   return (
-    <section className=" relative h-screen overflow-hidden py-20 bg-red-50  flex items-center justify-around">
+    <section ref={about} className=" relative h-screen overflow-hidden py-20 bg-red-50  flex items-center justify-around">
       <div ref={aboutImage1} className="relative h-2/4 inline-block">
         <img  src="/images/lamp1.png" alt="Lamp 1" className="block w-72 h-72 " />
         <img  src="/images/lamp2.png" alt="Lamp 2" className="absolute bottom-[-22%] right-[-20%] w-48"/>

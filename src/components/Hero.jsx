@@ -9,6 +9,7 @@ export default function Hero() {
   const heroText=useRef();
   const POD= useRef();
   const videoRef=useRef();
+  const hero = useRef();
 
   useEffect(() => {
     gsap.fromTo(
@@ -33,17 +34,18 @@ export default function Hero() {
       POD.current,
       {opacity:0, y:200},
       {opacity:1, y:0, ease:'power1.in', scrollTrigger:{
-        trigger:heroText.current,
-        start:'bottom 70%',
-        end:'bottom 30%',
+        trigger:hero.current,
+        start:'center center',
+        end:'center 30%',
         scrub:true,
+        snap:1
 
       }}
     );
   }, []);
 
   return (
-    <section className="hero text-white p-10">
+    <section ref={hero} className="hero text-white p-10">
       <video
         ref={videoRef}
         className=" hero absolute top-0 left-0  w-full object-cover object-center will-change-transform"
@@ -70,7 +72,7 @@ export default function Hero() {
           </button>
         </div>
         <div ref={POD} className=" mt-10 flex flex-col gap-6 justify-center items-center ">
-          <h1 className="text-5xl w-2/6">WHERE STYLE ENDURES: TIMELESS MERCHANDISE FOR YOUR STORY</h1>
+          <h1 className="text-5xl w-3/6">WHERE STYLE ENDURES: TIMELESS MERCHANDISE FOR YOUR STORY</h1>
           <img src="/images/image2.jpg" alt="" className="w-80 h-80 object-cover" />
           <h1 className="text-5xl ">PRODUCT OF THE DAY</h1>
         </div>
