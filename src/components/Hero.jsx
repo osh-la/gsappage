@@ -15,7 +15,7 @@ export default function Hero() {
     gsap.fromTo(
       heroHeader.current,
       { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 2, ease: "power2.out" }
+      { opacity: 1, y: 0, duration: 2, stagger:1, ease: "power2.out" }
     );
      gsap.fromTo(
       videoRef.current,
@@ -62,6 +62,7 @@ export default function Hero() {
         >
           MERCH
         </h1>
+
         <div ref={heroText} className="space-y-2 text-2xl ml-20 w-2/6">
           <p>
             ADD ELEGANCE AND CHARM TO YOUR SPACE WITH FURNITURE THAT EXPRESSES

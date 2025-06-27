@@ -4,17 +4,17 @@ import Draggable from "gsap/Draggable";
 
 gsap.registerPlugin(Draggable);
 
-export default function ProductCarousel() {
+export default function Latest() {
   const trackRef = useRef(null);
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
 
   const items = [
-    { id: 1, image: "/images/chairs.png", label: "Modern Chair" },
-    { id: 2, image: "/images/image2.jpg", label: "Wooden Table" },
-    { id: 3, image: "/images/image3.jpg", label: "Sleek Lamp" },
-    { id: 4, image: "/images/image4.jpg", label: "Cozy Sofa" },
-    { id: 5, image: "/images/image5.jpg", label: "Wall Frame" },
+    { id: 1, image: "/images/chairs.png", label: "Modern Chair",price:"$140" },
+    { id: 2, image: "/images/image2.jpg", label: "Wooden Table",price:"$140" },
+    { id: 3, image: "/images/image3.jpg", label: "Sleek Lamp",price:"$140" },
+    { id: 4, image: "/images/image4.jpg", label: "Cozy Sofa",price:"$140" },
+    { id: 5, image: "/images/image5.jpg", label: "Wall Frame",price:"$140" },
   ];
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function ProductCarousel() {
       },
     });
 
-    // Draggable
+ 
     Draggable.create(track, {
       type: "x",
       inertia: true,
@@ -58,12 +58,12 @@ export default function ProductCarousel() {
       },
     });
 
-    // Custom cursor logic
+   
     const moveCursor = (e) => {
       const x = e.clientX;
       const y = e.clientY;
       gsap.set(cursor, {
-        x: x - 40, // offset to center
+        x: x - 40, 
         y: y - 40,
       });
     };
@@ -91,11 +91,11 @@ export default function ProductCarousel() {
   return (
     <section
       ref={containerRef}
-      className="overflow-hidden h-screen cursor-none bg-red-50 py-8 space-y-6 relative"
-      style={{ cursor: "none" }} 
+      className=" overflow-hidden h-screen bg-red-50 py-8 space-y-6 relative"
+       
     >
         <h1 className="ml-4 text-3xl">
-            FEATURED PRODUCTS
+            LATEST ARIVALS
         </h1>
       <div
         ref={cursorRef}
@@ -107,7 +107,7 @@ export default function ProductCarousel() {
       </div>
 
       <div className="flex  w-max gap-8 px-6" ref={trackRef}>
-        {[...items, ...items].map(({ image, label }, i) => (
+        {[...items, ...items].map(({ image, label, price }, i) => (
           <div
             key={i}
             className="relative w-[350px] h-[400px] shrink-0 overflow-hidden rounded-md shadow-lg"
@@ -118,8 +118,8 @@ export default function ProductCarousel() {
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 flex flex-col items-start justify-end p-4">
-              <p className="text-white text-lg font-semibold">{label}</p>
-              <p className="text-white text-lg font-semibold">{label}</p>
+              <p className="text-black text-xl font-semibold">{label} -</p>
+              <p className="text-black text-xl font-semibold">{price}</p>
             </div>
           </div>
         ))}

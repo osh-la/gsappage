@@ -3,11 +3,13 @@ import './App.css'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import About from './components/about'
-import FeaturedProd from './components/featuredProd'
 import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react'
 import Categories from './components/categories'
 import History from './components/history'
+import Latest from './components/latest'
+import LookoutSection from './components/lookOut'
+import Subscribe from './components/subscribe'
 
 export default function App() {
   useEffect(() => {
@@ -34,9 +36,11 @@ export default function App() {
        <Hero/>
        <div className="">
         <About/>
-        <FeaturedProd/>
+          <Latest/>
         <Categories/>
         <History/>
+        <LookoutSection/>
+        <Subscribe/>
        </div>
 
     </>
