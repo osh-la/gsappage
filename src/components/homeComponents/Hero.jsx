@@ -5,17 +5,23 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
+  const hero = useRef();
   const heroHeader = useRef();
   const heroText=useRef();
   const POD= useRef();
   const videoRef=useRef();
-  const hero = useRef();
-
   useEffect(() => {
     gsap.fromTo(
       heroHeader.current,
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 2, stagger:1, ease: "power2.out" }
+      { y:100},
+      { y: 0, duration: 2, ease: "power2.out",
+        scrollTrigger:{
+          trigger:hero.current,
+          start:'20% center',
+          end:'30% center',
+          scrub:true,
+        }
+       }
     );
      gsap.fromTo(
       videoRef.current,
