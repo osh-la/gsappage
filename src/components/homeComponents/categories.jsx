@@ -32,7 +32,6 @@ export default function Categories() {
         snap: 1 / (sections.length - 1),
         start: "top top",
         end: () => `+=${totalScroll}`,
-        markers: false,
       },
     });
 
