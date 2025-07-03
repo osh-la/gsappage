@@ -9,6 +9,8 @@ import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 import Home from "./pages/Home";
 import MainLayout from "./Layout/mainLayout";
+import NotFound from "./pages/notFound";
+
 export default function App() {
   useEffect(() => {
     const lenis = new Lenis({
@@ -29,6 +31,8 @@ export default function App() {
   createRoutesFromElements(
     <Route path='/' element={<MainLayout/>}>
       <Route index element={<Home/>}/>
+
+       <Route path='*' element={<NotFound/>} />
     </Route>
        
   )

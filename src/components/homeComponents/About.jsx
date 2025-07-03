@@ -6,54 +6,59 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const aboutImage1 = useRef();
-  const aboutImage2 = useRef();
+  const image = useRef();
   const aboutHeader = useRef();
   const about = useRef();
 
   useEffect(() => {
-    gsap.to(
-      [aboutImage1.current, aboutHeader.current],
-      {
-        y: '40%',
-        opacity: 1,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: about.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      }
-    );
+    gsap.to(aboutImage1.current, {
+      y: "40%",
+      ease: "none",
+      scrollTrigger: {
+        trigger: about.current,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
   }, []);
+
   return (
     <section
       ref={about}
-      className=" relative h-screen overflow-hidden py-20 bg-red-50 flex items-center justify-around"
+      className="relative h-screen overflow-hidden py-16 px-4 bg-red-50 flex flex-col-reverse md:flex-row items-center justify-around gap-10 md:gap-0"
     >
-      <div ref={aboutImage1} className="relative h-2/4 inline-block">
+      <div ref={aboutImage1} className="relative h-64 w-64 md:h-80 md:w-80">
         <img
+          ref={image}
           src="/images/lamp1.png"
           alt="Lamp 1"
-          className="block w-72 h-72 "
+          className="block w-full h-full object-contain"
         />
         <img
           src="/images/lamp2.png"
           alt="Lamp 2"
-          className="absolute bottom-[-22%] right-[-20%] w-48"
+          className="absolute bottom-[-20%] right-[-20%] w-32 md:w-48"
         />
       </div>
-      <div ref={aboutHeader} className=" w-3/5 space-y-4 text-xl">
-        <h1 className="text-2xl ">
+
+      <div
+        ref={aboutHeader}
+        className="w-full md:w-3/5 space-y-4 text-lg md:text-xl text-center md:text-left"
+      >
+        <h1 className="text-2xl md:text-3xl font-semibold">
           WELCOME TO OUR MERCH STORE, WHERE TIMELESS AND STYLISH DESIGNS MEET
           STORYTELLING.
         </h1>
-        <p className="">
+        <p>
           Every piece in our collection tells a personal story. Custom-designed
           and personalized to enhance your home's aesthetics.
         </p>
-        <button className="border-2  py-2 px-4 rounded-full border-gray-800">
+        <button className="border-2 py-2 px-6 rounded-full border-gray-800 flex items-center gap-2">
           ABOUT US
+          <div className="rounded-full bg-white p-2">
+            <img className="w-5 h-5" src="/images/right.png" alt="" />
+          </div>
         </button>
       </div>
     </section>

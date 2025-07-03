@@ -10,7 +10,7 @@ const LookoutSection = () => {
   const imageRef = useRef();
 
   useEffect(() => {
-    gsap.set(textRef.current,  { yPercent: 100, opacity: 0 });
+    gsap.set(textRef.current, { yPercent: 100, opacity: 0 });
     gsap.set(imageRef.current, { yPercent: 100, opacity: 0 });
 
     const tl = gsap.timeline({
@@ -42,10 +42,10 @@ const LookoutSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full flex overflow-hidden bg-red-50"
+      className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
     >
-
-      <div className="w-1/2 h-full relative overflow-hidden z-10">
+      {/* Image Section */}
+      <div className="w-full md:w-1/2 h-64 sm:h-96 md:h-full relative overflow-hidden z-10">
         <img
           ref={imageRef}
           src="/images/history.jpg"
@@ -54,14 +54,14 @@ const LookoutSection = () => {
         />
       </div>
 
-
-      <div className="w-1/2 h-full flex items-center justify-center px-10 z-20">
+      {/* Text Section */}
+      <div className="w-full md:w-1/2 h-full flex items-center justify-center px-4 sm:px-10 z-20">
         <div
           ref={textRef}
-          className="max-w-md text-right text-stone-800 font-medium  p-8 rounded-lg backdrop-blur-sm"
+          className="max-w-md text-center md:text-right text-stone-800 font-medium p-4 sm:p-8 rounded-lg backdrop-blur-sm"
         >
-          <h2 className="text-5xl mb-4">The Lookout</h2>
-          <p className="text-lg">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">The Lookout</h2>
+          <p className="text-base sm:text-lg">
             A calm space with endless views. Where you step back, reflect,
             and then leap forward.
           </p>

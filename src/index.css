@@ -4,6 +4,6 @@ body{
     padding: 0;
     overflow-x: hidden;
 }
-.hero,.history{
-    height: 200vh;
+.hero{
+    height: 150vh;
 }

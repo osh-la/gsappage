@@ -1,16 +1,25 @@
-import React from 'react'
+import React from 'react';
 
 const Nav = () => {
   return (
-    <ul className='flex justify-between fixed top-0 w-full z-50 text-brown-500 p-7 text-xl bg-red-50 shadow-sm '>
-        <li>PROPS</li>
-        <li>MENU</li>
-        <div className='flex justify-between gap-2'>
-            <li>SHOP</li>
-            <li>CART</li>
-        </div>
-    </ul>
-  )
-}
+    <nav className="fixed top-0 w-full z-50 bg-red-50 shadow-sm text-brown-500 text-base sm:text-xl px-4 sm:px-8 py-4">
+      <div className="flex items-center justify-between">
+        
+        {/* Left */}
+        <div className="font-bold">PROPS</div>
 
-export default Nav
+        {/* Center */}
+        <div className="hidden sm:block">MENU</div>
+
+        {/* Right */}
+        <div className="flex gap-4">
+          <span className="cursor-pointer hover:underline">SHOP</span>
+          <span className="cursor-pointer hover:underline">CART</span>
+        </div>
+
+      </div>
+    </nav>
+  );
+};
+
+export default Nav;

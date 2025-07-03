@@ -6,66 +6,119 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Categories() {
   const containerRef = useRef();
-  const trackRef = useRef();
 
   const categories = [
-    { id: 1, title: "LIGHTING", img1: "/images/lamp1.png", img2: "/images/lamp2.png" },
-    { id: 2, title: "CHAIRS", img1: "/images/chair1.png", img2: "/images/chair2.png" },
-    { id: 3, title: "MIRRORS", img1: "/images/mirror1.png", img2: "/images/mirror2.png" },
-    { id: 4, title: "LOUNGES", img1: "/images/lounge1.png", img2: "/images/lounge2.png" },
-    { id: 5, title: "TABLES", img1: "/images/table1.png", img2: "/images/table2.png" },
+    {
+      id: 1,
+      title: "LIGHTING",
+      img1: "/images/lamp1.png",
+      img2: "/images/lamp2.png",
+    },
+    {
+      id: 2,
+      title: "CHAIRS",
+      img1: "/images/chair1.png",
+      img2: "/images/chair2.png",
+    },
+    {
+      id: 3,
+      title: "MIRRORS",
+      img1: "/images/mirror1.png",
+      img2: "/images/lamp1.png",
+    },
+    {
+      id: 4,
+      title: "LOUNGES",
+      img1: "/images/lounge1.png",
+      img2: "/images/chair1.png",
+    },
+    {
+      id: 5,
+      title: "TABLES",
+      img1: "/images/table1.png",
+      img2: "/images/table2.png",
+    },
   ];
 
   useEffect(() => {
-    const sections = gsap.utils.toArray(".category-slide");
+    const slides = gsap.utils.toArray(".category-slide");
     const container = containerRef.current;
 
-    const totalScroll = (sections.length - 1) * window.innerWidth;
-
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
+    const scrollTween = gsap.to(slides, {
+      xPercent: -100 * (slides.length - 1),
       ease: "none",
       scrollTrigger: {
         trigger: container,
         pin: true,
         scrub: 1,
-        snap: 1 / (sections.length - 1),
+        snap: 1 / (slides.length - 1),
         start: "top top",
-        end: () => `+=${totalScroll}`,
+        end: () => `+=${(slides.length - 1) * window.innerWidth}`,
+        invalidateOnRefresh: true,
       },
     });
 
-    return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    slides.forEach((slide) => {
+      const bg = slide.querySelector(".glide-bg");
+
+      gsap.fromTo(
+        bg,
+        { yPercent: -12 },
+        {
+          yPercent: 12,
+          ease: "none",
+          scrollTrigger: {
+            trigger: slide,
+            containerAnimation: scrollTween,
+            start: "left center",
+            end: "right center",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-red-50">
-      <div
-        ref={trackRef}
-        className="flex w-max h-full"
-      >
+    <section
+      ref={containerRef}
+      className="relative w-full h-screen overflow-hidden bg-red-50"
+    >
+      <div className="flex w-max h-full">
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className="category-slide w-screen h-full flex items-center justify-center shrink-0"
+            className="category-slide w-screen h-full flex flex-col md:flex-row
+                       items-center justify-center p-6 gap-8 md:gap-16 shrink-0"
           >
-            <div className="relative h-2/4 inline-block">
-              <img
-                src={cat.img1}
-                alt={cat.title}
-                className="block w-72 h-72 object-contain"
+            <div className="relative w-60 h-60 md:w-72 md:h-72 overflow-hidden">
+              <div
+                className="glide-bg absolute inset-0 scale-[1.25] pointer-events-none"
+                style={{
+                  backgroundImage: `url(${cat.img2})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "bottom right",
+                }}
               />
-              <img
-                src={cat.img2}
-                alt={`${cat.title} overlay`}
-                className="absolute bottom-[-22%] right-[-20%] w-48 object-contain"
-              />
-              
             </div>
-           <div className="ml-20 p-6  text-zinc-900">
-             <h1 className="text-7xl font-bold">{cat.title}</h1>
-             <button className="border-2 border-zinc-900 py-2 px-4 rounded-full">SHOP {cat.title}</button>
-           </div>
+
+            <div className="text-center md:text-left text-zinc-900 max-w-md">
+              <h1 className="text-3xl md:text-7xl font-bold mb-4">
+                {cat.title}
+              </h1>
+              <button
+                className="border-2 border-zinc-900 py-2 px-4 rounded-full
+                                 text-sm md:text-base flex items-center gap-2"
+              >
+                SHOP&nbsp;{cat.title}{" "}
+                <div className="rounded-full bg-white p-2">
+                  <img className="w-5 h-5" src="/images/right.png" alt="" />
+                </div>
+              </button>
+            </div>
           </div>
         ))}
       </div>
