@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -46,14 +47,17 @@ const History = () => {
               We create furniture masterpieces that tell stories and store
               memories that don’t fade with trends.
             </p>
-            <button className="border-2 border-stone-800 rounded-full py-2 px-6 text-sm md:text-base gap-2">
-              <div className="flex  items-center justify-center ">
+            <a href='/History'>
+            <button  className="border-2  border-stone-800 rounded-full py-2 px-6 text-sm md:text-base gap-2">
+               <div className="flex  items-center justify-center ">
                 EXPLORE COLLECTION
                 <div className="rounded-full bg-white p-2">
                   <img className="w-5 h-5" src="/images/right.png" alt="" />
                 </div>
               </div>
             </button>
+             
+            </a>
           </div>
         </div>
       </div>

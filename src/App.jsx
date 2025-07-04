@@ -1,15 +1,19 @@
 import "./App.css";
-import { Route,
+import {
+  Route,
   createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider
- } from 'react-router-dom'
+  RouterProvider,
+} from "react-router-dom";
 
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 import Home from "./pages/Home";
 import MainLayout from "./Layout/mainLayout";
+import About from "./pages/About";
+import History from "./pages/history";
 import NotFound from "./pages/notFound";
+
 
 export default function App() {
   useEffect(() => {
@@ -28,14 +32,14 @@ export default function App() {
   }, []);
 
   const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path='/' element={<MainLayout/>}>
-      <Route index element={<Home/>}/>
-
-       <Route path='*' element={<NotFound/>} />
-    </Route>
-       
-  )
-)
-  return <RouterProvider router ={router} />;
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/History" element={<History />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    )
+  );
+  return <RouterProvider router={router} />;
 }
