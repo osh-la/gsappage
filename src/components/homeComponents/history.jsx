@@ -29,7 +29,7 @@ const History = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-red-50 relative h-[200vh] overflow-hidden"
+      className="bg-red-50 relative h-[100vh] md:h-[200vh] overflow-hidden"
     >
       <img
         ref={bgRef}

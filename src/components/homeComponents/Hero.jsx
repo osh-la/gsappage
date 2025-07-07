@@ -63,7 +63,7 @@ export default function Hero() {
   return (
     <section
       ref={hero}
-      className="hero relative text-white p-6 md:p-10 overflow-hidden"
+      className="h-[100vh] md:h-[150vh] relative text-white p-6 md:p-10 overflow-hidden"
     >
       <video
         ref={videoRef}
