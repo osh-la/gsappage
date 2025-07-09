@@ -4,4 +4,6 @@ body{
     padding: 0;
     overflow-x: hidden;
 }
-
+.head{
+    font-size: 200px;
+}

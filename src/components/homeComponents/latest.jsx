@@ -115,7 +115,7 @@ export default function Latest() {
               alt={label}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 flex flex-col items-start justify-end p-4 bg-gradient-to-t from-white/70 to-transparent">
+            <div className="absolute inset-0 p-4 w-2/4 h-1/4 top-5/6 bg-gradient-to-t from-white/70 to-transparent">
               <p className="text-black text-base sm:text-lg font-semibold">{label} -</p>
               <p className="text-black text-base sm:text-lg font-semibold">{price}</p>
             </div>

@@ -45,7 +45,7 @@ export default function About() {
 
       <div
         ref={aboutHeader}
-        className="w-full md:w-3/5 space-y-4 text-lg md:text-xl text-center md:text-left"
+        className="w-full md:w-3/5 space-y-4 text-lg md:text-xl flex flex-col justify-center md:justify-start  md:text-left"
       >
         <h1 className="text-2xl md:text-3xl font-semibold">
           WELCOME TO OUR MERCH STORE, WHERE TIMELESS AND STYLISH DESIGNS MEET

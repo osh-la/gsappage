@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <section className="w-full bg-black text-white py-12 px-4">
+    <section className="w-full bg-black text-white py-12 px-4 z-10 relative">
       <div className="max-w-7xl mx-auto space-y-12">
 
         {/* Links Section */}
@@ -21,7 +21,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-xs sm:text-sm text-zinc-400">
-          © OSH_LA 2025
+          © OSH_LA 2025 
         </div>
 
       </div>

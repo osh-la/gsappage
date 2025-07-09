@@ -14,17 +14,11 @@ export default function Hero() {
   useEffect(() => {
     gsap.fromTo(
       heroHeader.current,
-      { y: 100 },
+      { opacity:0 },
       {
-        y: 0,
-        duration: 2,
+        opacity:1,
+        duration: 5,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: hero.current,
-          start: "20% center",
-          end: "30% center",
-          scrub: true,
-        },
       }
     );
     gsap.fromTo(
@@ -43,7 +37,6 @@ export default function Hero() {
     );
     gsap.fromTo(
       POD.current,
-
       { y: "40%", opacity: 0 },
 
       {
@@ -63,7 +56,7 @@ export default function Hero() {
   return (
     <section
       ref={hero}
-      className="h-[100vh] md:h-[150vh] relative text-white p-6 md:p-10 overflow-hidden"
+      className="h-screen md:h-[150vh] relative text-white p-6 md:px-32 overflow-hidden"
     >
       <video
         ref={videoRef}
@@ -74,23 +67,23 @@ export default function Hero() {
         loop
         playsInline
       />
-      <div className="relative w-full text-center md:top-1/3 flex flex-col items-center justify-evenly space-y-6">
+      <div className="relative top-1/3 md:top-1/4 w-full space-y-6 md:space-y-20">
         <h1
           ref={heroHeader}
-          className="text-5xl md:text-7xl lg:text-9xl font-extrabold"
+          className=" text-center text-5xl md:text-7xl lg:text-8xl font-extrabold"
         >
-          MERCH
+          FURNITURE PLACE
         </h1>
 
         <div
           ref={heroText}
-          className="space-y-4 text-lg md:text-2xl w-full max-w-xl px-4 md:px-0"
+          className="space-y-4 text-lg  w-full max-w-xl px-4 md:px-0"
         >
           <p>
             ADD ELEGANCE AND CHARM TO YOUR SPACE WITH FURNITURE THAT EXPRESSES
             YOUR INDIVIDUALITY
           </p>
-          <button className="border-2 border-white rounded-full py-2 px-6 text-sm md:text-base ">
+          <button className="border-2 border-white rounded-full py-2 px-6 text-sm  ">
             <div className="flex items-center justify-center gap-2">
               EXPLORE COLLECTION{" "}
               <div className="rounded-full bg-white p-2">
@@ -102,13 +95,10 @@ export default function Hero() {
 
         <div
           ref={POD}
-          className="mt-12 flex flex-col items-center text-center gap-6 w-full max-w-3xl px-4"
+          className="mt-12 flex flex-col items-center  justify-center text-center gap-6 w-full  px-4"
         >
-          <h1 className="text-lg md:text-2xl font-semibold ">
+          <h1 className="text-lg ">
             WHERE STYLE ENDURES: TIMELESS MERCHANDISE FOR YOUR STORY
-          </h1>
-          <h1 className="text-lg md:text-2xl font-semibold">
-            PRODUCT OF THE DAY
           </h1>
         </div>
       </div>

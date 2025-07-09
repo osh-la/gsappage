@@ -17,17 +17,17 @@ const TransitionOverlay = ({ onComplete }) => {
 
     tl.fromTo(
       overlayRef.current,
-      { yPercent: -100 }, // start off-screen top
+      { yPercent: -100 }, 
       {
-        yPercent: 0, // drop down to cover
+        yPercent: 0, 
         duration: 0.8,
         ease: "power4.inOut",
       }
     )
     .to(overlayRef.current, {
-      yPercent: 100, // slide down off-screen
+      yPercent: 100, 
       duration: 0.8,
-      delay: 1, // stay for 1 second
+      delay: 1.2,
       ease: "power4.inOut",
     });
 
@@ -41,9 +41,9 @@ const TransitionOverlay = ({ onComplete }) => {
   return (
     <div
       ref={overlayRef}
-      className="fixed top-0 left-0 w-full h-full text-white bg-black z-[9999] pointer-events-none flex justify-center items-center"
+      className="fixed top-0 left-0 w-full h-full text-black bg-red-50 z-[9999] pointer-events-none flex justify-center items-center"
     >
-      <h1 className="font-extrabold text-9xl">MERCH</h1>
+      <h1 className="font-extrabold text-3xl md:text-8xl">FURNITURE</h1>
     </div>
   );
 };

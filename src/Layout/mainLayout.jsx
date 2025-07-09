@@ -1,6 +1,7 @@
 import Nav from "../components/Nav";
 import Footer from "../components/footer";
 
+
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import TransitionOverlay from "../components/transitionoverlay";
@@ -26,6 +27,7 @@ export default function MainLayout() {
       >
         <Outlet />
       </main>
+ 
       <Footer />
     </>
   );
