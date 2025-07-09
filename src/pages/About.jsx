@@ -17,7 +17,7 @@ export default function About() {
         {
           width: '100vw',
         
-          y:'100vh',
+          y:'50vh',
           scrollTrigger:{
             trigger:aboutSection.current,
             start:'center center',
@@ -29,7 +29,7 @@ export default function About() {
       })
   })
   return (
-    <section ref={aboutSection} className="h-[200vh] text-black mt-10 p-10 pb-40">
+    <section ref={aboutSection} className="h-[300vh] text-black mt-10 p-10 pb-40">
       <h1 className="head">ABOUT US</h1>
       <div className=" flex gap-2  w-full h-100">
         <div className="flex gap-2 w-full">
