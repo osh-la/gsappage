@@ -1,13 +1,31 @@
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import Draggable from "gsap/Draggable";
-
-gsap.registerPlugin(Draggable);
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 export default function Latest() {
-  const trackRef = useRef(null);
+  const [sliderRef, slider] = useKeenSlider({
+    loop: true,
+    renderMode: "performance",
+    slides: {
+      perView: 3,
+      spacing: 15,
+    },
+    breakpoints: {
+      "(max-width: 768px)": {
+        slides: { perView: 1, spacing: 10 },
+      },
+      "(min-width: 769px) and (max-width: 1024px)": {
+        slides: { perView: 2.5, spacing: 12 },
+      },
+      "(min-width: 1025px)": {
+        slides: { perView: 4, spacing: 15 },
+      },
+    },
+  });
+
   const containerRef = useRef(null);
   const cursorRef = useRef(null);
+  const autoplayRef = useRef(null);
 
   const items = [
     { id: 1, image: "/images/chairs.png", label: "Modern Chair", price: "$140" },
@@ -17,69 +35,43 @@ export default function Latest() {
     { id: 5, image: "/images/image5.jpg", label: "Wall Frame", price: "$140" },
   ];
 
+  // Autoplay – scroll by visible group or just 1 on mobile
   useEffect(() => {
-    const track = trackRef.current;
+    if (!slider || !slider.current) return;
+
+    const current = slider.current;
+    const getPerView = () =>
+      typeof current.options.slides.perView === "number"
+        ? current.options.slides.perView
+        : 1;
+
+    const scroll = () => {
+      const { abs } = current.track.details;
+      const perView = getPerView();
+      current.moveToIdx(abs + perView, true);
+    };
+
+    autoplayRef.current = setInterval(scroll, 2500);
+
+    return () => clearInterval(autoplayRef.current);
+  }, [slider]);
+
+  // Drag cursor
+  useEffect(() => {
     const container = containerRef.current;
     const cursor = cursorRef.current;
-    const totalWidth = track.scrollWidth / 2;
-
-    let tween = gsap.to(track, {
-      x: `-=${totalWidth}`,
-      ease: "none",
-      duration: totalWidth / 100,
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
-      },
-    });
-
-    Draggable.create(track, {
-      type: "x",
-      inertia: true,
-      edgeResistance: 0.9,
-      onDragStart: () => tween.pause(),
-      onDragEnd: function () {
-        tween.kill();
-        const currentX = gsap.getProperty(track, "x");
-        tween = gsap.to(track, {
-          x: `-=${totalWidth}`,
-          ease: "none",
-          duration: totalWidth / 100,
-          repeat: -1,
-          modifiers: {
-            x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
-          },
-        });
-        gsap.set(track, { x: currentX });
-      },
-      modifiers: {
-        x: gsap.utils.unitize((x) => parseFloat(x) % totalWidth),
-      },
-    });
 
     const moveCursor = (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      gsap.set(cursor, {
-        x: x - 40,
-        y: y - 40,
-      });
+      cursor.style.transform = `translate(${e.clientX - 32}px, ${e.clientY - 32}px)`;
     };
-
-    const showCursor = () => {
-      cursor.style.opacity = 1;
-    };
-    const hideCursor = () => {
-      cursor.style.opacity = 0;
-    };
+    const showCursor = () => (cursor.style.opacity = 1);
+    const hideCursor = () => (cursor.style.opacity = 0);
 
     container.addEventListener("mousemove", moveCursor);
     container.addEventListener("mouseenter", showCursor);
     container.addEventListener("mouseleave", hideCursor);
 
     return () => {
-      tween.kill();
-      Draggable.get(track)?.kill();
       container.removeEventListener("mousemove", moveCursor);
       container.removeEventListener("mouseenter", showCursor);
       container.removeEventListener("mouseleave", hideCursor);
@@ -87,10 +79,7 @@ export default function Latest() {
   }, []);
 
   return (
-    <section
-      ref={containerRef}
-      className="overflow-hidden min-h-screen bg-red-50 py-8 space-y-6 relative"
-    >
+    <section ref={containerRef} className="min-h-screen bg-red-50 py-8 space-y-6 relative">
       <h1 className="ml-4 text-2xl sm:text-3xl font-semibold">LATEST ARRIVALS</h1>
 
       <div
@@ -102,19 +91,13 @@ export default function Latest() {
         Drag
       </div>
 
-      <div className="flex w-max gap-6 sm:gap-8 px-4" ref={trackRef}>
+      <div ref={sliderRef} className="keen-slider px-4">
         {[...items, ...items].map(({ image, label, price }, i) => (
           <div
             key={i}
-            className="relative w-[80vw] sm:w-72 md:w-80 lg:w-[350px] 
-                       h-[60vw] sm:h-[360px] md:h-[400px] 
-                       shrink-0 overflow-hidden rounded-md shadow-lg bg-white"
+            className="keen-slider__slide relative w-full max-w-[300px] h-[360px] shrink-0 rounded-md shadow-lg bg-white overflow-hidden"
           >
-            <img
-              src={image}
-              alt={label}
-              className="w-full h-full object-cover"
-            />
+            <img src={image} alt={label} className="w-full h-full object-cover" />
             <div className="absolute inset-0 p-4 w-2/4 h-1/4 top-5/6 bg-gradient-to-t from-white/70 to-transparent">
               <p className="text-black text-base sm:text-lg font-semibold">{label} -</p>
               <p className="text-black text-base sm:text-lg font-semibold">{price}</p>

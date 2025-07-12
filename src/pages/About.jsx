@@ -7,31 +7,30 @@ export default function About() {
   const aboutImage = useRef();
   const aboutSection = useRef();
 
-  useEffect(()=>{
-    gsap.fromTo(aboutImage.current,
+  useEffect(() => {
+    gsap.fromTo(
+      aboutImage.current,
       {
-        height:'10vh',
-        width:'20vw',
-         y:'0'
+        width: "10vw",
       },
-        {
-          width: '100vw',
-        
-          y:'50vh',
-          scrollTrigger:{
-            trigger:aboutSection.current,
-            start:'center center',
-            end:'bottom center',
-            scrub:true,
-    
+      {
+        width: "100vw",
 
-          }
-      })
-  })
+        scrollTrigger: {
+          trigger: aboutSection.current,
+          start: "center center",
+          end: "bottom bottom",
+          scrub: true,
+
+          markers: true,
+        },
+      }
+    );
+  });
   return (
-    <section ref={aboutSection} className="h-[300vh] text-black mt-10 p-10 pb-40">
-      <h1 className="head">ABOUT US</h1>
-      <div className=" flex gap-2  w-full h-100">
+    <section ref={aboutSection} className=" text-black mt-10 p-10 pb-40">
+      <section className="">
+        <h1 className="head">ABOUT US</h1>
         <div className="flex gap-2 w-full">
           <img className="w-2/5" src="/images/chairs.png" alt="image" />
           <div className="flex flex-col justify-between w-100">
@@ -48,12 +47,11 @@ export default function About() {
             </p>
           </div>
         </div>
-        <div ref={aboutImage} className=" absolute right-0 w-full z-0">
-          <img  className='object-center' src="/images/chairs.png" alt="" />
+      </section>
+      <section ref={aboutImage} className=" w-full bg-red-50 h-screen  ">
+        <div  className="z-0 text-9xl font-bold text-center">
+         test
         </div>
-      </div>
-      <section className="  bg-red-50">
-
       </section>
     </section>
   );
