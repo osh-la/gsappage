@@ -42,10 +42,10 @@ const LookoutSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
+      className="relative min-h-[100vh] w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
     >
-      {/* Image Section */}
-      <div className="w-full md:w-1/2 h-64 sm:h-96 md:h-full relative overflow-hidden z-10">
+      {/* IMAGE BLOCK */}
+      <div className="w-full md:w-1/2 h-[50vh] md:h-full relative z-10 overflow-hidden">
         <img
           ref={imageRef}
           src="/images/history.jpg"
@@ -54,7 +54,7 @@ const LookoutSection = () => {
         />
       </div>
 
-      {/* Text Section */}
+      {/* TEXT BLOCK */}
       <div className="w-full md:w-1/2 h-full flex items-center justify-center px-4 sm:px-10 z-20">
         <div
           ref={textRef}

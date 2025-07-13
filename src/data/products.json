@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Arc-leg Table",
+    "category": "Tables",
+    "image": "/images/arcleg-table.jpg",
+    "price": 1020
+  },
+  {
+    "id": 2,
+    "name": "Tripod Table Lamp",
+    "category": "Lamps",
+    "image": "/images/tripod-lamp.jpg",
+    "price": 320
+  },
+  {
+    "id": 3,
+    "name": "Modern Chair",
+    "category": "Chairs",
+    "image": "/images/chair-modern.jpg",
+    "price": 440
+  }
+]

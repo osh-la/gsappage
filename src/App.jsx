@@ -13,6 +13,7 @@ import MainLayout from "./Layout/mainLayout";
 import About from "./pages/About";
 import History from "./pages/history";
 import NotFound from "./pages/notFound";
+import ShopPage from "./pages/shop";
 
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/History" element={<History />} />
+         <Route path="/shop" element={<ShopPage/>} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
