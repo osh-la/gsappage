@@ -1,46 +1,53 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const categories = [
+  {
+    id: 1,
+    title: "Lighting",
+    slug: "lighting",
+    img1: "/images/lamp1.png",
+    img2: "/images/lamp2.png",
+  },
+  {
+    id: 2,
+    title: "Chairs",
+    slug: "chairs",
+    img1: "/images/chair1.png",
+    img2: "/images/chair2.png",
+  },
+  {
+    id: 3,
+    title: "Mirrors",
+    slug: "mirrors",
+    img1: "/images/mirror1.png",
+    img2: "/images/lamp1.png",
+  },
+  {
+    id: 4,
+    title: "Lounges",
+    slug: "lounges",
+    img1: "/images/lounge1.png",
+    img2: "/images/chair1.png",
+  },
+  {
+    id: 5,
+    title: "Tables",
+    slug: "tables",
+    img1: "/images/table1.png",
+    img2: "/images/table2.png",
+  },
+];
+
 export default function Categories() {
   const containerRef = useRef();
 
-  const categories = [
-    {
-      id: 1,
-      title: "LIGHTING",
-      img1: "/images/lamp1.png",
-      img2: "/images/lamp2.png",
-    },
-    {
-      id: 2,
-      title: "CHAIRS",
-      img1: "/images/chair1.png",
-      img2: "/images/chair2.png",
-    },
-    {
-      id: 3,
-      title: "MIRRORS",
-      img1: "/images/mirror1.png",
-      img2: "/images/lamp1.png",
-    },
-    {
-      id: 4,
-      title: "LOUNGES",
-      img1: "/images/lounge1.png",
-      img2: "/images/chair1.png",
-    },
-    {
-      id: 5,
-      title: "TABLES",
-      img1: "/images/table1.png",
-      img2: "/images/table2.png",
-    },
-  ];
-
-  useEffect(() => {
+useEffect(() => {
+  const ctx = gsap.context(() => {
     const slides = gsap.utils.toArray(".category-slide");
     const container = containerRef.current;
 
@@ -55,12 +62,12 @@ export default function Categories() {
         start: "top top",
         end: () => `+=${(slides.length - 1) * window.innerWidth}`,
         invalidateOnRefresh: true,
-      },
+        id: "category-scroll"
+      }
     });
 
-    slides.forEach((slide) => {
+    slides.forEach((slide, i) => {
       const bg = slide.querySelector(".glide-bg");
-
       gsap.fromTo(
         bg,
         { yPercent: -12 },
@@ -73,13 +80,18 @@ export default function Categories() {
             start: "left center",
             end: "right center",
             scrub: true,
+            id: `slide-${i}`,
           },
         }
       );
     });
+  }, containerRef);
 
-    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
-  }, []);
+  return () => {
+    ctx.revert(); 
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+  };
+}, []);
 
   return (
     <section
@@ -109,15 +121,16 @@ export default function Categories() {
               <h1 className="text-3xl md:text-7xl font-bold mb-4">
                 {cat.title}
               </h1>
-              <button
+              <a
+                href={`/shop/${cat.slug}`}
                 className="border-2 border-zinc-900 py-2 px-4 rounded-full
-                                 text-sm md:text-base flex items-center gap-2"
+                           text-sm md:text-base flex items-center gap-2"
               >
-                SHOP&nbsp;{cat.title}{" "}
+                SHOP&nbsp;{cat.title}
                 <div className="rounded-full bg-white p-2">
                   <img className="w-5 h-5" src="/images/right.png" alt="" />
                 </div>
-              </button>
+              </a>
             </div>
           </div>
         ))}

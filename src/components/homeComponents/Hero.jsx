@@ -70,9 +70,9 @@ export default function Hero() {
       <div className="relative top-1/3 md:top-1/4 w-full space-y-6 md:space-y-20">
         <h1
           ref={heroHeader}
-          className=" text-center text-5xl md:text-7xl lg:text-8xl font-extrabold"
+          className=" text-4xl md:text-6xl  font-extrabold text-center"
         >
-          FURNITURE PLACE
+          SANE & ODOGWU
         </h1>
 
         <div

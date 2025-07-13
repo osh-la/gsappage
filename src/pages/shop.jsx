@@ -1,19 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useProducts } from "../context/productprovider";
 
 export default function ShopPage() {
+  const { products } = useProducts();
+  const { categorySlug } = useParams();
 
-    const {products} = useProducts();
-
-  const categories = ["All", "Tables", "Lamps", "Chairs", "Shelves"];
+  const categories = ["All", "Tables", "Lamps", "Chairs", "Shelves", "Lighting", "Mirrors", "Lounges"];
   const [filter, setFilter] = useState("All");
+
+  useEffect(() => {
+    if (categorySlug) {
+      const matched = categories.find(
+        (c) => c.toLowerCase() === categorySlug.toLowerCase()
+      );
+      setFilter(matched || "All");
+    }
+  }, [categorySlug]);
 
   const filtered = filter === "All"
     ? products
-    : products.filter(p => p.category === filter);
+    : products.filter(p => p.category.toLowerCase() === filter.toLowerCase());
 
   return (
-    <div className="px-4 py-12 max-w-7xl mx-auto space-y-8">
+    <div className="px-4 py-12 max-w-7xl mx-auto space-y-8 bg-red-50">
       <h1 className="text-4xl font-bold">All Products</h1>
 
       <div className="flex flex-wrap gap-4">
@@ -48,7 +58,7 @@ export default function ShopPage() {
                   </span>
                 ))}
               </div>
-              <p className="text-lg font-bold">{p.price}</p>
+              <p className="text-lg font-bold">${p.price}</p>
               <button className="mt-2 w-full bg-stone-800 text-white py-2 rounded">
                 Add to cart
               </button>

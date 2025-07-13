@@ -39,6 +39,7 @@ export default function App() {
         <Route path="/About" element={<About />} />
         <Route path="/History" element={<History />} />
          <Route path="/shop" element={<ShopPage/>} />
+         <Route path="/shop/:categorySlug" element={<ShopPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
