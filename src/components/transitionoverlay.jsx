@@ -24,13 +24,13 @@ const TransitionOverlay = ({ onComplete }) => {
         { yPercent: -100 },
         {
           yPercent: 0,
-          duration: 1.5,
+          duration: 0.7,
           ease: "power4.inOut",
         }
       )
       .to(overlayRef.current, {
         yPercent: 100,
-        duration: 1.5,
+        duration: 0.7,
         delay: 1.2,
         ease: "power4.inOut",
       });

@@ -19,6 +19,7 @@ export default function About() {
           start: "center center",
           end: "bottom bottom",
           scrub: true,
+    
         },
       });
 
@@ -44,7 +45,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="mt-10 px-4 md:px-10 text-black space-y-16">
+    <section ref={sectionRef} className="mt-10 md:px-10 text-black space-y-16">
       <section>
         <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center md:text-left">ABOUT US</h1>
         <div className="flex flex-col md:flex-row gap-6 items-center">
