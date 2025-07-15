@@ -3,14 +3,13 @@ import gsap from "gsap";
 
 const TransitionOverlay = ({ onComplete }) => {
   const overlayRef = useRef(null);
-  const tl = useRef(null); // store timeline
+  const tl = useRef(null);
 
   useEffect(() => {
     if (!overlayRef.current) return;
 
     tl.current = gsap.timeline({
       onComplete: () => {
-        // small delay to allow page to stabilize
         setTimeout(() => {
           if (onComplete && overlayRef.current) {
             onComplete();
@@ -25,19 +24,19 @@ const TransitionOverlay = ({ onComplete }) => {
         { yPercent: -100 },
         {
           yPercent: 0,
-          duration: 0.8,
+          duration: 1.5,
           ease: "power4.inOut",
         }
       )
       .to(overlayRef.current, {
         yPercent: 100,
-        duration: 0.8,
+        duration: 1.5,
         delay: 1.2,
         ease: "power4.inOut",
       });
 
     return () => {
-      // ✅ Kill animation and cleanup safely
+
       if (tl.current) tl.current.kill();
       if (overlayRef.current) gsap.killTweensOf(overlayRef.current);
     };

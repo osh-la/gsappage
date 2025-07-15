@@ -99,9 +99,9 @@ export default function Hero() {
           ref={POD}
           className="mt-12 flex flex-col items-center  justify-center text-center gap-6 w-full  px-4"
         >
-          <h1 className="text-lg ">
-            WHERE STYLE ENDURES: TIMELESS MERCHANDISE FOR YOUR STORY
-          </h1>
+        <h1 className="text-5xl font-bold">
+          WHERE STYLE ENDURES: TIMELESS PIECES FOR YOUR STORY
+        </h1>
         </div>
       </div>
     </section>

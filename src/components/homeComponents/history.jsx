@@ -47,7 +47,7 @@ const History = () => {
               We create furniture masterpieces that tell stories and store
               memories that don’t fade with trends.
             </p>
-            <a href='/History'>
+            <a href="/shop">
             <button  className="border-2  border-stone-800 rounded-full py-2 px-6 text-sm md:text-base gap-2">
                <div className="flex  items-center justify-center ">
                 EXPLORE COLLECTION

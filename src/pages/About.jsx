@@ -45,7 +45,6 @@ export default function About() {
 
   return (
     <section ref={sectionRef} className="mt-10 px-4 md:px-10 text-black space-y-16">
-      {/* Intro Section */}
       <section>
         <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center md:text-left">ABOUT US</h1>
         <div className="flex flex-col md:flex-row gap-6 items-center">
@@ -57,18 +56,18 @@ export default function About() {
           <div className="flex flex-col gap-4 text-base md:text-lg text-center md:text-left">
             <p>
               It is more than just furniture; it is stories filled with
-              inspiration, creativity, and passion that will bring life to your
+              inspiration, creativity and passion that will bring life to your
               home.
             </p>
             <p>
-              The perfect blend of elegance, practicality, and essence with a
+              The perfect blend of elegance, practicality and essence with a
               sense of style for whatever space you want it in.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Animated Grow Section */}
+     
       <section
         ref={growRef}
         className="bg-red-50 min-h-screen flex flex-col items-center justify-center px-4 py-16 md:px-10 overflow-hidden"

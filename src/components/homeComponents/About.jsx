@@ -48,12 +48,12 @@ export default function About() {
         className="w-full md:w-3/5 space-y-4 text-lg md:text-xl flex flex-col justify-center md:justify-start  md:text-left"
       >
         <h1 className="text-2xl md:text-3xl font-semibold">
-          WELCOME TO OUR MERCH STORE, WHERE TIMELESS AND STYLISH DESIGNS MEET
+          WELCOME TO OUR STORE, WHERE TIMELESS AND STYLISH DESIGNS MEET
           STORYTELLING.
         </h1>
         <p>
           Every piece in our collection tells a personal story. Custom-designed
-          and personalized to enhance your home's aesthetics.
+          and personalized to enhance aesthetics of your spaces..
         </p>
         <a href="/About">
           <button className="border-2 py-2 px-6 rounded-full border-gray-800 flex items-center gap-2">
