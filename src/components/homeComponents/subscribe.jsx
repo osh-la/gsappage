@@ -31,11 +31,17 @@ export default function Subscribe() {
           <p className="text-white text-sm sm:text-base font-bold text-center">
             NEVER MISS OUT, STAY UPDATED!
           </p>
-          <input
-            type="email"
-            className="text-white border-2 rounded-full border-zinc-400 w-full max-w-md py-2 px-4 outline-none text-sm sm:text-base"
-            placeholder="@email.com"
-          />
+
+          <div className="flex  items-center justify-center ">
+            <input
+              type="email"
+              className="text-white border-2 rounded-full border-zinc-400 w-full max-w-md py-2 px-4 outline-none text-sm sm:text-base"
+              placeholder="@email.com"
+            />
+            <div className="rounded-full bg-white p-2">
+              <img className="w-5 h-5" src="/images/right.png" alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

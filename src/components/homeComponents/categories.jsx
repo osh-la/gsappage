@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -10,36 +9,31 @@ const categories = [
     id: 1,
     title: "HOMES",
     slug: "homes",
-    img1: "/images/lamp1.png",
-    img2: "/images/lamp2.png",
+    img2: "/images/home.jpg",
   },
   {
     id: 2,
     title: "OFFICES",
     slug: "offices",
-    img1: "/images/chair1.png",
-    img2: "/images/chair2.png",
+    img2: "/images/office.jpg",
   },
   {
     id: 3,
     title: "LOUNGES",
     slug: "lounges",
-    img1: "/images/mirror1.png",
-    img2: "/images/lamp1.png",
+    img2: "/images/lounge.jpg",
   },
   {
     id: 4,
     title: "SPA'S ",
     slug: "spa's",
-    img1: "/images/lounge1.png",
-    img2: "/images/chair1.png",
+    img2: "/images/spa.jpg",
   },
   {
     id: 5,
     title: "EVENT",
     slug: "events",
-    img1: "/images/table1.png",
-    img2: "/images/table2.png",
+    img2: "/images/event.jpg",
   },
 ];
 
@@ -126,7 +120,7 @@ useEffect(() => {
                 className="border-2 border-zinc-900 py-2 px-4 rounded-full
                            text-sm md:text-base flex items-center gap-2"
               >
-                SHOP&nbsp;{cat.title}
+                SHOP PIECES FOR {cat.title}
                 <div className="rounded-full bg-white p-2">
                   <img className="w-5 h-5" src="/images/right.png" alt="" />
                 </div>

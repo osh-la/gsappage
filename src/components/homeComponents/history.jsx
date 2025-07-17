@@ -42,7 +42,7 @@ const History = () => {
         <div className="w-full max-w-3xl h-auto md:h-[70vh] text-center flex items-center justify-center text-stone-800 font-medium bg-gray-100 bg-opacity-90 rounded-xl p-6 md:p-12">
           <div className="w-full md:w-4/5 space-y-4">
             <p className="text-base md:text-lg">Since</p>
-            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold">1985</h1>
+            <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold">2025</h1>
             <p className="text-sm md:text-base">
               We create furniture masterpieces that tell stories and store
               memories that don’t fade with trends.
