@@ -2,21 +2,35 @@
   {
     "id": 1,
     "name": "Arc-leg Table",
-    "category": "Tables",
+    "category": "HOMES",
     "image": "/images/arcleg-table.jpg",
     "price": 1020
   },
   {
     "id": 2,
     "name": "Tripod Table Lamp",
-    "category": "Lamps",
+    "category": "OFFICES",
     "image": "/images/tripod-lamp.jpg",
     "price": 320
   },
   {
     "id": 3,
     "name": "Modern Chair",
-    "category": "Chairs",
+    "category": "LOUNGES",
+    "image": "/images/chair-modern.jpg",
+    "price": 440
+  },
+    {
+    "id": 3,
+    "name": "Modern Chair",
+    "category": "SPA'S",
+    "image": "/images/chair-modern.jpg",
+    "price": 440
+  },
+    {
+    "id": 3,
+    "name": "Modern Chair",
+    "category": "EVENTS",
     "image": "/images/chair-modern.jpg",
     "price": 440
   }

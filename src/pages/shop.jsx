@@ -6,7 +6,7 @@ export default function ShopPage() {
   const { products } = useProducts();
   const { categorySlug } = useParams();
 
-  const categories = ["All", "Tables", "Lamps", "Chairs", "Shelves", "Lighting", "Mirrors", "Lounges"];
+  const categories = ["All", "HOMES", "OFFICES", "LOUNGES", "SPA'S", "EVENTS"];
   const [filter, setFilter] = useState("All");
 
   useEffect(() => {
