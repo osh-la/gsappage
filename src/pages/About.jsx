@@ -45,7 +45,7 @@ export default function About() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="mt-20 md:mt-10 md:px-10 text-black space-y-16 overflow-x-hidden">
+    <section ref={sectionRef} className="mt-20 md:px-10 text-black space-y-16 overflow-x-hidden">
       <section>
         <h1 className="text-4xl md:text-6xl font-bold mb-8 text-center md:text-left">ABOUT US</h1>
         <div className="flex flex-col md:flex-row gap-6 items-center">

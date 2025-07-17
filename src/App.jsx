@@ -11,7 +11,6 @@ import { useEffect } from "react";
 import Home from "./pages/Home";
 import MainLayout from "./Layout/mainLayout";
 import About from "./pages/About";
-import History from "./pages/history";
 import NotFound from "./pages/notFound";
 import ShopPage from "./pages/shop";
 
@@ -37,7 +36,6 @@ export default function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/About" element={<About />} />
-        <Route path="/History" element={<History />} />
          <Route path="/shop" element={<ShopPage/>} />
          <Route path="/shop/:categorySlug" element={<ShopPage />} />
         <Route path="*" element={<NotFound />} />
