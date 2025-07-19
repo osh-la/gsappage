@@ -6,8 +6,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto space-y-12">
 
        
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-6 gap-y-4 text-sm sm:text-base">
-          {Array(8).fill("Home").map((item, index) => (
+        <div className="flex justify-around gap-y-4 text-sm sm:text-base">
+          {Array(2).fill("Home").map((item, index) => (
             <li key={index} className="list-none hover:underline cursor-pointer">
               {item}
             </li>

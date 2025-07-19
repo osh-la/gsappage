@@ -44,17 +44,17 @@ const LookoutSection = () => {
       ref={sectionRef}
       className="relative min-h-[100vh] w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
     >
-      {/* IMAGE BLOCK */}
+    
       <div className="w-full md:w-1/2 h-[50vh] md:h-full relative z-10 overflow-hidden">
         <img
           ref={imageRef}
-          src="/images/history.jpg"
+          src="/images/sane.jpeg"
           alt="Lookout"
-          className="w-full h-full object-cover pointer-events-none"
+          className="w-full h-full object-contain pointer-events-none"
         />
       </div>
 
-      {/* TEXT BLOCK */}
+
       <div className="w-full md:w-1/2 h-full flex items-center justify-center px-4 sm:px-10 z-20">
         <div
           ref={textRef}
@@ -62,8 +62,7 @@ const LookoutSection = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">The Lookout</h2>
           <p className="text-base sm:text-lg">
-            A calm space with endless views. Where you step back, reflect,
-            and then leap forward.
+          A calm store with endless choices. Step in, reflect, and find what moves your space forward.
           </p>
         </div>
       </div>

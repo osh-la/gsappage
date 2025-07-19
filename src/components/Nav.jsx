@@ -6,14 +6,15 @@ const Nav = () => {
       <div className="flex items-center justify-between">
         
         
-        <div className="font-bold">LOGO</div>
+        <div className="font-bold">
+          <a href="/">LOGO</a>
+          </div>
 
        
-        <div className="hidden sm:block">MENU</div>
 
   
         <div className="flex gap-4">
-          <span className="cursor-pointer hover:underline">SHOP</span>
+          <span className="cursor-pointer hover:underline"><a href="/shop">SHOP</a></span>
           <span className="cursor-pointer hover:underline">CART</span>
         </div>
 
