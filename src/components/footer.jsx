@@ -7,11 +7,8 @@ const Footer = () => {
 
        
         <div className="flex justify-around gap-y-4 text-sm sm:text-base">
-          {Array(2).fill("Home").map((item, index) => (
-            <li key={index} className="list-none hover:underline cursor-pointer">
-              {item}
-            </li>
-          ))}
+          <a className="list-none hover:underline cursor-pointer" href="/">Home</a>
+          <a className="list-none hover:underline cursor-pointer" href="/shop">Shop</a>
         </div>
 
      

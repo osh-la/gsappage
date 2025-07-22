@@ -3,6 +3,7 @@ import gsap from "gsap";
 
 const TransitionOverlay = ({ onComplete }) => {
   const overlayRef = useRef(null);
+  const text =useRef();
   const tl = useRef(null);
 
   useEffect(() => {
@@ -14,14 +15,18 @@ const TransitionOverlay = ({ onComplete }) => {
           if (onComplete && overlayRef.current) {
             onComplete();
           }
-        }, 50);
+        }, 30);
       },
     });
-
+    gsap.to(
+      text.current,{
+        x:'50',
+        duration:0.6
+      }
+    )
     tl.current
-      .fromTo(
+      .to(
         overlayRef.current,
-        { yPercent: -100 },
         {
           yPercent: 0,
           duration: 0.7,
@@ -31,7 +36,7 @@ const TransitionOverlay = ({ onComplete }) => {
       .to(overlayRef.current, {
         yPercent: 100,
         duration: 0.7,
-        delay: 1.2,
+        delay: 0.7,
         ease: "power4.inOut",
       });
 
@@ -47,7 +52,7 @@ const TransitionOverlay = ({ onComplete }) => {
       ref={overlayRef}
       className="fixed top-0 left-0 w-full h-full text-black bg-red-50 z-[9999] pointer-events-none flex justify-center items-center"
     >
-      <h1 className="font-extrabold text-3xl md:text-8xl">SANE & ODOGWU</h1>
+      <h1 ref ={text}className="font-extrabold text-3xl md:text-8xl">SANE & ODOGWU</h1>
     </div>
   );
 };

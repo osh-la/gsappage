@@ -46,31 +46,24 @@ export default function ShopPage() {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {filtered.map((p, i) => (
-          <div key={i} className="bg-white shadow rounded overflow-hidden">
+          <div key={i} className="shadow rounded overflow-hidden">
             <img
               src={p.image}
               alt={p.name}
-              className="w-full h-48 object-cover"
+              className="w-100 h-100 object-cover"
             />
             <div className="p-4 space-y-2">
               <h2 className="font-semibold">{p.name}</h2>
-              <div className="flex items-center gap-2">
-                <span className="text-sm">Sizes:</span>
-                {["small", "medium", "large"].map((s) => (
-                  <span key={s} className="px-2 py-1 border rounded text-xs">
-                    {s}
-                  </span>
-                ))}
-              </div>
+        
               <p className="text-lg font-bold">${p.price}</p>
               <button
                 onClick={() => {
                   addToCart(p);
                   toast.success(`${p.name} added to cart`);
                 }}
-                className="mt-2 w-full bg-stone-800 text-white py-2 rounded"
+                className="mt-2 bg-stone-800 text-white p-2 rounded"
               >
                 Add to cart
               </button>

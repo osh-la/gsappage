@@ -60,7 +60,7 @@ const LookoutSection = () => {
           ref={textRef}
           className="max-w-md text-center md:text-right text-stone-800 font-medium p-4 sm:p-8 rounded-lg backdrop-blur-sm"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">The Lookout</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">OUR SHOWROOM</h2>
           <p className="text-base sm:text-lg">
           A calm store with endless choices. Step in, reflect, and find what moves your space forward.
           </p>
