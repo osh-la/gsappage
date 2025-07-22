@@ -31,7 +31,7 @@ const categories = [
   },
   {
     id: 5,
-    title: "EVENT",
+    title: "EVENTS",
     slug: "events",
     img2: "/images/event.jpg",
   },
@@ -99,7 +99,7 @@ useEffect(() => {
             className="category-slide w-screen h-full flex flex-col md:flex-row
                        items-center justify-center p-6 gap-8 md:gap-16 shrink-0"
           >
-            <div className="relative w-60 h-60 md:w-72 md:h-72 overflow-hidden">
+            <div className="relative w-100 h-100 overflow-hidden">
               <div
                 className="glide-bg absolute inset-0 scale-[1.25] pointer-events-none"
                 style={{

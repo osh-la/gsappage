@@ -7,3 +7,7 @@ body{
 .head{
     font-size: 200px;
 }
+.section{
+    background-color: black;
+    color: white;
+}

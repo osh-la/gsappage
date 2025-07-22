@@ -29,7 +29,7 @@ export default function ShopPage() {
         );
 
   return (
-    <div className="px-4 py-12 max-w-7xl mx-auto space-y-8 bg-red-50">
+    <div className="px-4 py-12 space-y-8 bg-red-50">
       <h1 className="text-4xl font-bold">All Products</h1>
 
       <div className="flex flex-wrap gap-4">

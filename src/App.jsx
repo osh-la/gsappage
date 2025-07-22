@@ -13,7 +13,8 @@ import MainLayout from "./Layout/mainLayout";
 import About from "./pages/About";
 import NotFound from "./pages/notFound";
 import ShopPage from "./pages/shop";
-import CartPage from "./pages/cartPage";
+import Cart from "./pages/cartPage";
+
 
 export default function App() {
   useEffect(() => {
@@ -32,7 +33,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/shop" element={<ShopPage />} />
-        <Route path="/cart" element={<CartPage/>} />
+        <Route path="/cart" element={<Cart/>} />
         <Route path="/shop/:categorySlug" element={<ShopPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -1,6 +1,6 @@
 import { useCart } from "../context/cartProvider";
 
-export default function CartPage() {
+export default function Cart() {
   const { cart, removeFromCart } = useCart();
 
   return (
