@@ -89,7 +89,7 @@ export default function ShopPage() {
                 className="w-full h-100 object-cover"
               />
 
-              <div className="absolute bottom-0 left-0 p-4 bg-white/20 text-white space-y-2">
+              <div className="absolute bottom-0 left-0 p-4 bg-white/40 text-black space-y-2 rounded-md">
                 <h2 className="font-semibold">{p.name}</h2>
                 <p className="text-lg font-bold">${p.price}</p>
                 <button

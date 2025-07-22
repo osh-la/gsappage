@@ -18,9 +18,12 @@ const TransitionOverlay = ({ onComplete }) => {
         }, 30);
       },
     });
-    gsap.to(
+    gsap.fromTo(
       text.current,{
-        x:'50',
+        x:0,
+        duration:0.6
+      },{
+        x:'center',
         duration:0.6
       }
     )
@@ -35,7 +38,7 @@ const TransitionOverlay = ({ onComplete }) => {
       )
       .to(overlayRef.current, {
         yPercent: 100,
-        duration: 0.7,
+        duration: 1.7,
         delay: 0.7,
         ease: "power4.inOut",
       });
