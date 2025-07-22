@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useProducts } from "../context/productprovider";
+import { useCart } from "../context/cartProvider";
+import toast from "react-hot-toast";
 
 export default function ShopPage() {
+  const { addToCart } = useCart();
   const { products } = useProducts();
   const { categorySlug } = useParams();
 
@@ -18,16 +21,19 @@ export default function ShopPage() {
     }
   }, [categorySlug]);
 
-  const filtered = filter === "All"
-    ? products
-    : products.filter(p => p.category.toLowerCase() === filter.toLowerCase());
+  const filtered =
+    filter === "All"
+      ? products
+      : products.filter(
+          (p) => p.category.toLowerCase() === filter.toLowerCase()
+        );
 
   return (
     <div className="px-4 py-12 max-w-7xl mx-auto space-y-8 bg-red-50">
       <h1 className="text-4xl font-bold">All Products</h1>
 
       <div className="flex flex-wrap gap-4">
-        {categories.map(cat => (
+        {categories.map((cat) => (
           <button
             key={cat}
             className={`px-4 py-2 rounded ${
@@ -52,14 +58,20 @@ export default function ShopPage() {
               <h2 className="font-semibold">{p.name}</h2>
               <div className="flex items-center gap-2">
                 <span className="text-sm">Sizes:</span>
-                {["small", "medium", "large"].map(s => (
+                {["small", "medium", "large"].map((s) => (
                   <span key={s} className="px-2 py-1 border rounded text-xs">
                     {s}
                   </span>
                 ))}
               </div>
               <p className="text-lg font-bold">${p.price}</p>
-              <button className="mt-2 w-full bg-stone-800 text-white py-2 rounded">
+              <button
+                onClick={() => {
+                  addToCart(p);
+                  toast.success(`${p.name} added to cart`);
+                }}
+                className="mt-2 w-full bg-stone-800 text-white py-2 rounded"
+              >
                 Add to cart
               </button>
             </div>

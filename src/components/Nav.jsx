@@ -15,7 +15,7 @@ const Nav = () => {
   
         <div className="flex gap-4">
           <span className="cursor-pointer hover:underline"><a href="/shop">SHOP</a></span>
-          <span className="cursor-pointer hover:underline">CART</span>
+          <span className="cursor-pointer hover:underline"> <a href="/cart">CART</a></span>
         </div>
 
       </div>

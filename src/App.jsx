@@ -5,29 +5,24 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from "react-router-dom";
-
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast"; // 🔥 import toaster
 import Home from "./pages/Home";
 import MainLayout from "./Layout/mainLayout";
 import About from "./pages/About";
 import NotFound from "./pages/notFound";
 import ShopPage from "./pages/shop";
-
+import CartPage from "./pages/cartPage";
 
 export default function App() {
   useEffect(() => {
-    const lenis = new Lenis({
-      smooth: true,
-    });
-
+    const lenis = new Lenis({ smooth: true });
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
-
     return () => lenis.destroy();
   }, []);
 
@@ -36,11 +31,18 @@ export default function App() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Home />} />
         <Route path="/About" element={<About />} />
-         <Route path="/shop" element={<ShopPage/>} />
-         <Route path="/shop/:categorySlug" element={<ShopPage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/cart" element={<CartPage/>} />
+        <Route path="/shop/:categorySlug" element={<ShopPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
   );
-  return <RouterProvider router={router} />;
+
+  return (
+    <>
+      <Toaster position="bottom-right" reverseOrder={false} />
+      <RouterProvider router={router} />
+    </>
+  );
 }
