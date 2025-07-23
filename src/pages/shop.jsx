@@ -41,9 +41,9 @@ export default function ShopPage() {
         if (!img) return;
         gsap.fromTo(
           img,
-          { yPercent: -10 },
+          { yPercent: -20 },
           {
-            yPercent: 10,
+            yPercent: 20,
             ease: "none",
             scrollTrigger: {
               trigger: img,

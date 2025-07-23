@@ -77,7 +77,7 @@ export default function Hero() {
 
         <div
           ref={heroText}
-          className="space-y-4 text-lg  w-full max-w-xl px-4 md:px-0"
+          className="space-y-4 text-lg text-center  px-4 md:px-0"
         >
           <p>
             ADD ELEGANCE AND CHARM TO YOUR SPACE WITH FURNITURE THAT EXPRESSES
@@ -97,9 +97,9 @@ export default function Hero() {
 
         <div
           ref={POD}
-          className="mt-12 flex flex-col items-center  justify-center text-center gap-6 w-full  px-4"
+          className=" mt-48 md:mt-96 flex flex-col items-center justify-center text-center gap-6 w-full  px-4"
         >
-        <h1 className="text-3xl md:text-5xl font-bold">
+        <h1 className="text-lg font-semibold ">
           WHERE STYLE ENDURES: TIMELESS PIECES FOR YOUR STORY
         </h1>
         </div>

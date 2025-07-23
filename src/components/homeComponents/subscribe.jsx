@@ -23,17 +23,17 @@ export default function Subscribe() {
 
   return (
     <section ref={subsection} className="h-screen">
-      <div className="section flex justify-center items-center h-full  px-4">
+      <div className="flex justify-center items-center h-full bg-red-50 px-4">
         <div
           ref={sub}
-          className="flex flex-col justify-center items-center bg-gray-900 w-full max-w-xl min-h-[200px] space-y-4 p-6 rounded-xl"
+          className="flex flex-col justify-center items-center bg-black w-full max-w-xl min-h-[200px] space-y-4 p-6 rounded-xl"
         >
           <p className="text-white text-sm sm:text-base font-bold text-center">
             NEVER MISS OUT, STAY UPDATED!
           </p>
 
-          <div className="flex  items-center justify-center text-white ">
-            <p>+234 8888888888</p>
+          <div className="flex  items-center justify-center ">
+            <p>+234 88888888888</p>
             {/* <input
               type="email"
               className="text-white border-2 rounded-l-full border-zinc-400 w-full max-w-md py-2 px-4 outline-none text-sm sm:text-base"
