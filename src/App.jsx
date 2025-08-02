@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
-import { Toaster } from "react-hot-toast"; // 🔥 import toaster
+import { Toaster } from "react-hot-toast";
+
 import Home from "./pages/Home";
 import MainLayout from "./Layout/mainLayout";
 import About from "./pages/About";
@@ -15,6 +16,7 @@ import NotFound from "./pages/notFound";
 import ShopPage from "./pages/shop";
 import Cart from "./pages/cartPage";
 
+import { CartProvider } from "./context/cartProvider"; // ✅ import CartProvider
 
 export default function App() {
   useEffect(() => {
@@ -33,7 +35,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/About" element={<About />} />
         <Route path="/shop" element={<ShopPage />} />
-        <Route path="/cart" element={<Cart/>} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/shop/:categorySlug" element={<ShopPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
@@ -41,9 +43,11 @@ export default function App() {
   );
 
   return (
-    <>
+   <>
       <Toaster position="bottom-right" reverseOrder={false} />
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </>
   );
 }
