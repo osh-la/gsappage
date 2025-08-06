@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,8 +7,8 @@ const Footer = () => {
 
        
         <div className="flex justify-around gap-y-4 text-sm sm:text-base">
-          <a className="list-none hover:underline cursor-pointer" href="/">Home</a>
-          <a className="list-none hover:underline cursor-pointer" href="/shop">Shop</a>
+          <Link className="list-none hover:underline cursor-pointer" to="/">Home</Link>
+          <Link className="list-none hover:underline cursor-pointer" to="/shop">Shop</Link>
         </div>
 
      

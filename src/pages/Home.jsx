@@ -6,14 +6,14 @@ import LookoutSection from "../components/homeComponents/lookOut";
 import Subscribe from "../components/homeComponents/subscribe";
 const Home = () => {
   return (
-    <>
+    <section className="">
       <Hero />
       <About />
       <Categories />
       <History />
       <LookoutSection />
       <Subscribe />
-    </>
+    </section>
   );
 };
 

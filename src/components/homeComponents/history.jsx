@@ -23,7 +23,13 @@ const History = () => {
       });
     }, sectionRef);
 
-    return () => ctx.revert();
+    return () =>{
+      //  ctx.revert();
+     try {
+    ctx.revert(); // only if ctx is defined and valid
+  } catch (err) {
+    console.warn("GSAP revert error:", err.message);
+  }};
   }, []);
 
   return (
@@ -47,7 +53,7 @@ const History = () => {
               We create furniture masterpieces that tell stories and store
               memories that don’t fade with trends.
             </p>
-            <a href="/shop">
+            <Link to="/shop">
             <button  className="border-2  border-stone-800 rounded-full py-2 px-6 text-sm md:text-base gap-2">
                <div className="flex  items-center justify-center ">
                 EXPLORE COLLECTION
@@ -57,7 +63,7 @@ const History = () => {
               </div>
             </button>
              
-            </a>
+            </Link>
           </div>
         </div>
       </div>

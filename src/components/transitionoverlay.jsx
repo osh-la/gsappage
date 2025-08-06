@@ -7,48 +7,34 @@ const TransitionOverlay = ({ onComplete }) => {
   const tl = useRef(null);
 
   useEffect(() => {
-    if (!overlayRef.current) return;
+  if (!overlayRef.current || !text.current) return;
 
+  const ctx = gsap.context(() => {
     tl.current = gsap.timeline({
       onComplete: () => {
         setTimeout(() => {
-          if (onComplete && overlayRef.current) {
-            onComplete();
-          }
+          if (onComplete && overlayRef.current) onComplete();
         }, 30);
       },
     });
-    gsap.fromTo(
-      text.current,{
-        x:0,
-        duration:0.6
-      },{
-        x:'center',
-        duration:0.6
-      }
-    )
+
     tl.current
-      .to(
-        overlayRef.current,
-        {
-          yPercent: 0,
-          duration: 0.7,
-          ease: "power4.inOut",
-        }
-      )
+      .fromTo(text.current, { x: 0 }, { x: "center", duration: 0.6 })
+      .to(overlayRef.current, {
+        yPercent: 0,
+        duration: 0.7,
+        ease: "power4.inOut",
+      })
       .to(overlayRef.current, {
         yPercent: 100,
         duration: 1.7,
         delay: 0.7,
         ease: "power4.inOut",
       });
+  }, overlayRef);
 
-    return () => {
-
-      if (tl.current) tl.current.kill();
-      if (overlayRef.current) gsap.killTweensOf(overlayRef.current);
-    };
-  }, [onComplete]);
+  return () => ctx.revert();
+}, [onComplete]);
 
   return (
     <div

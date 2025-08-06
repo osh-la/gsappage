@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -81,11 +82,17 @@ useEffect(() => {
     });
   }, containerRef);
 
+
   return () => {
+  //   ctx.revert(); 
+  //   ScrollTrigger.getAll().forEach((t) => t.kill());
+  // };
+   try {
     ctx.revert(); 
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-  };
-}, []);
+  } catch (err) {
+    console.warn("GSAP revert error:", err.message);
+  }};
+}, );
 
   return (
     <section
@@ -115,8 +122,8 @@ useEffect(() => {
               <h1 className="text-3xl md:text-7xl font-bold mb-4">
                 {cat.title}
               </h1>
-              <a
-                href={`/shop/${cat.slug}`}
+              <Link
+                to={`/shop/${cat.slug}`}
                 className="border-2 border-zinc-900 py-2 px-4 rounded-full
                            text-sm md:text-base flex items-center gap-2"
               >
@@ -124,7 +131,7 @@ useEffect(() => {
                 <div className="rounded-full bg-white p-2">
                   <img className="w-5 h-5" src="/images/right.png" alt="" />
                 </div>
-              </a>
+              </Link>
             </div>
           </div>
         ))}

@@ -57,7 +57,14 @@ export default function ShopPage() {
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+       try {
+    ctx.revert(); // only if ctx is defined and valid
+  } catch (err) {
+    console.warn("GSAP revert error:", err.message);
+  }
+};
+      // ctx.revert();
   }, [filtered]);
 
   return (

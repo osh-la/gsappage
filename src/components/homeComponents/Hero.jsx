@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -83,7 +84,7 @@ export default function Hero() {
             ADD ELEGANCE AND CHARM TO YOUR SPACE WITH FURNITURE THAT EXPRESSES
             YOUR INDIVIDUALITY
           </p>
-         <a href="/shop">
+         <Link to="/shop">
           <button className="border-2 border-white rounded-full py-2 px-6 text-sm  ">
             <div className="flex items-center justify-center gap-2">
               EXPLORE COLLECTION{" "}
@@ -92,7 +93,7 @@ export default function Hero() {
               </div>
             </div>
           </button>
-         </a>
+         </Link>
         </div>
 
         <div
