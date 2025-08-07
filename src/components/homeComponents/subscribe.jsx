@@ -11,7 +11,7 @@ export default function Subscribe() {
             NEVER MISS OUT, STAY UPDATED!
           </p>
 
-          <div className="flex  items-center justify-center ">
+          {/* <div className="flex  items-center justify-center ">
             <p>+234 88888888888</p>
             <input
               type="email"
@@ -21,7 +21,7 @@ export default function Subscribe() {
             <div className="rounded-r-md bg-white p-2 md:p-3">
               <img className="w-5 h-5" src="/images/right.png" alt="" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
