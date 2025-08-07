@@ -52,7 +52,7 @@ useEffect(() => {
       scrollTrigger: {
         trigger: container,
         pin: true,
-        scrub: 1,
+        scrub: 0.3,
         snap: 1 / (slides.length - 1),
         start: "top top",
         end: () => `+=${(slides.length - 1) * window.innerWidth}`,
@@ -74,7 +74,7 @@ useEffect(() => {
             containerAnimation: scrollTween,
             start: "left center",
             end: "right center",
-            scrub: true,
+            scrub: 0.3,
             id: `slide-${i}`,
           },
         }
@@ -84,14 +84,10 @@ useEffect(() => {
 
 
   return () => {
-  //   ctx.revert(); 
-  //   ScrollTrigger.getAll().forEach((t) => t.kill());
-  // };
-   try {
     ctx.revert(); 
-  } catch (err) {
-    console.warn("GSAP revert error:", err.message);
-  }};
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+  };
+
 }, );
 
   return (
@@ -114,6 +110,7 @@ useEffect(() => {
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "bottom right",
+                  loading:'lazy'
                 }}
               />
             </div>
