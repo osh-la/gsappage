@@ -1,16 +1,16 @@
-import { Link} from 'react-router-dom';
+import TransitionLink from "./transitionLink";
 
 const Nav = ({ onCartClick }) => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-red-50 shadow-sm text-gray-800 text-base sm:text-xl px-4 sm:px-8 py-4">
       <div className="flex items-center justify-between">
         <div className="font-bold">
-          <Link to="/">LOGO</Link>
+          <TransitionLink to="/">LOGO</TransitionLink>
         </div>
 
         <div className="flex gap-4">
           <span className="cursor-pointer hover:underline">
-            <Link to="/shop">SHOP</Link>
+            <TransitionLink to="/shop">SHOP</TransitionLink>
           </span>
           <span onClick={onCartClick} className="cursor-pointer hover:underline">
             CART

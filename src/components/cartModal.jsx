@@ -1,7 +1,7 @@
 import { useCart } from "../context/cartProvider";
 
 const CartModal = ({ onClose }) => {
-  const { cart, removeFromCart } = useCart();
+  const { cart, removeFromCart, clearCart } = useCart(); // ✅ Make sure clearCart is implemented in your context
 
   const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
 
@@ -33,13 +33,23 @@ const CartModal = ({ onClose }) => {
               </div>
             ))}
           </div>
-          <div className="mt-6 border-t pt-4">
-            <div className="flex justify-between font-semibold text-lg mb-4">
+
+
+            <button
+              onClick={clearCart}
+              className="w-1/2 text-red-600 border border-red-500 py-2  hover:bg-red-100 transition"
+            >
+              Clear Cart
+            </button>
+          <div className="mt-6 border-t pt-4 space-y-3">
+            <div className="flex justify-between font-semibold text-lg">
               <span>Total:</span>
               <span>${total.toFixed(2)}</span>
             </div>
+
+
             <button className="w-full bg-red-500 text-white py-3 rounded-md hover:bg-red-600 transition">
-            Checkout
+              Proceed to Checkout
             </button>
           </div>
         </>

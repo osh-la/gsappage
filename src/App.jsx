@@ -17,6 +17,7 @@ import ShopPage from "./pages/shop";
 import Cart from "./pages/cartPage";
 
 import { CartProvider } from "./context/cartProvider"; // ✅ import CartProvider
+import { TransitionProvider } from "./context/transitionContext";
 
 export default function App() {
   useEffect(() => {
@@ -43,11 +44,13 @@ export default function App() {
   );
 
   return (
-   <>
-      <Toaster position="bottom-right" reverseOrder={false} />
-      <CartProvider>
-        <RouterProvider router={router} />
-      </CartProvider>
+    <>
+      <TransitionProvider>
+        <Toaster position="bottom-right" reverseOrder={false} />
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
+      </TransitionProvider>
     </>
   );
 }
