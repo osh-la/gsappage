@@ -45,7 +45,7 @@ const LookoutSection = () => {
       className="relative min-h-[100vh] w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
     >
     
-      <div className="w-full md:w-1/2 h-[65vh] md:h-full relative z-10 overflow-hidden">
+      <div className="w-full md:w-1/2 h-[85vh] md:h-full relative z-10 overflow-hidden">
         <img
           ref={imageRef}
           src="/images/image1.jpg"
