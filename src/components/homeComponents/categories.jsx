@@ -10,7 +10,7 @@ const categories = [
     id: 1,
     title: "HOMES",
     slug: "homes",
-    img2: "/images/home.jpg",
+    img2: "/images/sane.jpeg",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const categories = [
     id: 3,
     title: "LOUNGES",
     slug: "lounges",
-    img2: "/images/lounge.jpg",
+    img2: "/images/image5.jpg",
   },
   {
     id: 4,
@@ -107,9 +107,9 @@ useEffect(() => {
                 className="glide-bg absolute inset-0 scale-[1.25] pointer-events-none"
                 style={{
                   backgroundImage: `url(${cat.img2})`,
-                  backgroundSize: "contain",
+                  backgroundSize: "cover",
                   backgroundRepeat: "no-repeat",
-                  backgroundPosition: "bottom right",
+                  backgroundPosition: "center",
                   loading:'lazy'
                 }}
               />

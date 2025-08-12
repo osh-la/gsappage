@@ -2,10 +2,10 @@
 export default function Subscribe() {
 
   return (
-    <section className="h-screen bg-red-50 px-4">
+    <section className="h-screen bg-black px-4">
       <div className="flex justify-center items-center h-full ">
         <div
-          className="flex flex-col justify-center items-center bg-black w-full max-w-xl min-h-[200px] space-y-4 p-6 rounded-xl"
+          className="flex flex-col justify-center items-center bg-black w-full space-y-4 p-6 rounded-xl"
         >
           <p className="text-white text-sm sm:text-base font-bold text-center">
             NEVER MISS OUT, STAY UPDATED!

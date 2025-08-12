@@ -11,7 +11,7 @@ const Home = () => {
       <About />
       <Categories />
       <History />
-      <LookoutSection />
+      <LookoutSection/>
       <Subscribe />
     </section>
   );

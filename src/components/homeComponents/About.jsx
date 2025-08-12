@@ -32,7 +32,7 @@ export default function About() {
       <div ref={aboutImage1} className="relative h-64 w-64 md:h-80 md:w-80">
         <img
           ref={image}
-          src="/images/lamp1.png"
+          src="/images/image2.jpg"
           alt="Lamp 1"
           className="block w-full h-full object-contain"
         />

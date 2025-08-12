@@ -48,7 +48,7 @@ const LookoutSection = () => {
       <div className="w-full md:w-1/2 h-[50vh] md:h-full relative z-10 overflow-hidden">
         <img
           ref={imageRef}
-          src="/images/sane.jpeg"
+          src="/images/image1.jpg"
           alt="Lookout"
           className="w-full h-full object-contain pointer-events-none"
         />
