@@ -45,12 +45,12 @@ const LookoutSection = () => {
       className="relative min-h-[100vh] w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
     >
     
-      <div className="w-full md:w-1/2 h-[50vh] md:h-full relative z-10 overflow-hidden">
+      <div className="w-full md:w-1/2 h-64 md:h-full relative z-10 overflow-hidden">
         <img
           ref={imageRef}
           src="/images/image1.jpg"
           alt="Lookout"
-          className="w-full h-full object-contain pointer-events-none"
+          className="w-full h-full object-cover pointer-events-none"
         />
       </div>
 
