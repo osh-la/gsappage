@@ -45,7 +45,7 @@ const LookoutSection = () => {
       className="relative min-h-[100vh] w-full flex flex-col md:flex-row overflow-hidden bg-red-50"
     >
     
-      <div className="w-full md:w-1/2 h-64 md:h-full relative z-10 overflow-hidden">
+      <div className="w-full md:w-1/2 h-[65vh] md:h-full relative z-10 overflow-hidden">
         <img
           ref={imageRef}
           src="/images/image1.jpg"
@@ -62,7 +62,7 @@ const LookoutSection = () => {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">OUR SHOWROOM</h2>
           <p className="text-base sm:text-lg">
-          A calm store with endless choices. Step in, reflect, and find what moves your space forward.
+           a world of endless choices. Step in, reflect, and find what moves your space forward.
           </p>
         </div>
       </div>
