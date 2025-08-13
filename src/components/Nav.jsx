@@ -12,9 +12,9 @@ const Nav = ({ onCartClick }) => {
           <span className="cursor-pointer hover:underline">
             <TransitionLink to="/shop">SHOP</TransitionLink>
           </span>
-          <span onClick={onCartClick} className="cursor-pointer hover:underline">
+          <button onClick={onCartClick} className="cursor-pointer hover:underline">
             CART
-          </span>
+          </button>
         </div>
       </div>
     </nav>

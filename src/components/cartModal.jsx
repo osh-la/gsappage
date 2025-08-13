@@ -1,7 +1,7 @@
 import { useCart } from "../context/cartProvider";
 
 const CartModal = ({ onClose }) => {
-  const { cart, removeFromCart, clearCart } = useCart(); // ✅ Make sure clearCart is implemented in your context
+  const { cart, removeFromCart, clearCart } = useCart(); 
 
   const total = cart.reduce((sum, item) => sum + Number(item.price), 0);
 
