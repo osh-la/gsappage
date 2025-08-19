@@ -65,9 +65,9 @@ useEffect(() => {
       const bg = slide.querySelector(".glide-bg");
       gsap.fromTo(
         bg,
-        { yPercent: -12 },
+        { xPercent: -6 },
         {
-          yPercent: 12,
+          xPercent: 6,
           ease: "none",
           scrollTrigger: {
             trigger: slide,

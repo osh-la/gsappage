@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import TransitionLink from "../transitionLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,14 +55,14 @@ export default function About() {
           Every piece in our collection tells a personal story. Custom-designed
           and personalized to enhance aesthetics of your spaces..
         </p>
-        <Link to="/About">
+        <TransitionLink to="/About">
           <button className="border-2 py-2 px-6 rounded-full border-gray-800 flex items-center gap-2">
             ABOUT US
             <div className="rounded-full bg-white p-2">
               <img className="w-5 h-5" src="/images/right.png" alt="" />
             </div>
           </button>
-        </Link>
+        </TransitionLink>
       </div>
     </section>
   );

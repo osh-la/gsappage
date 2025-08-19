@@ -58,11 +58,11 @@ const LookoutSection = () => {
       <div className="w-full md:w-1/2 h-full flex items-center justify-center px-4 sm:px-10 z-20">
         <div
           ref={textRef}
-          className="max-w-md text-center md:text-right text-stone-800 font-medium p-4 sm:p-8 rounded-lg backdrop-blur-sm"
+          className="text-center md:text-left text-stone-800 font-medium p-4 sm:p-8 rounded-lg backdrop-blur-sm"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">OUR SHOWROOM</h2>
           <p className="text-base sm:text-lg">
-           a world of endless choices. Step in, reflect, and find what moves your space forward.
+          Located at former spoons sensation, rayfield road jos plateau state, a world of endless choices. Step in, reflect, and find what moves your space forward.
           </p>
         </div>
       </div>
