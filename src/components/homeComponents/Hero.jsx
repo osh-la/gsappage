@@ -73,7 +73,7 @@ export default function Hero() {
           ref={heroHeader}
           className=" text-4xl md:text-6xl  font-extrabold text-center"
         >
-          SANE & ODOGWU
+          SANE VILLAGE
         </h1>
 
         <div

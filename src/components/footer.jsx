@@ -13,7 +13,7 @@ const Footer = () => {
 
      
         <h1 className="text-4xl md:text-6xl  font-extrabold text-center">
-          SANE & ODOGWU
+          SANE VILLAGE
         </h1>
 
  
